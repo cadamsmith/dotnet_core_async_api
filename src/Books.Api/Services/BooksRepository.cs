@@ -21,7 +21,7 @@ public class BooksRepository : IBooksRepository
     {
         if (id == Guid.Empty)
         {
-            throw new ArgumentException(nameof(id));
+            throw new ArgumentNullException(nameof(id));
         }
 
         return await _context.Books.Include(b => b.Author)
@@ -32,7 +32,7 @@ public class BooksRepository : IBooksRepository
     {
         if (book is null)
         {
-            throw new ArgumentException(nameof(book));
+            throw new ArgumentNullException(nameof(book));
         }
 
         _context.Add(book);
