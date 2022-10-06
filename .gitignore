@@ -452,6 +452,3 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-
-# secrets.json for environment variables
-src/Books.Api/secrets.json
