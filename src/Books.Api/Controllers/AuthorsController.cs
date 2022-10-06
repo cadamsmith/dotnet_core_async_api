@@ -8,7 +8,7 @@ using Books.Api.Services;
 namespace Books.Api.Controllers;
 
 [ApiController]
-[Route("[controller")]
+[Route("[controller]")]
 public class AuthorsController : ControllerBase
 {
     private readonly IAuthorsRepository _authorsRepository;
