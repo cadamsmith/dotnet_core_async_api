@@ -8,6 +8,7 @@ public class BooksProfile : Profile
     public BooksProfile()
     {
         // CreateMap<Source, Destination>
+        // Source --> Destination
 
         // Entities.Book --> Models.Book
         CreateMap<Entities.Book, Models.Book>()
