@@ -22,6 +22,20 @@ public class BooksController : ControllerBase
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
+    [HttpGet]
+    public async Task<ActionResult<Book>> GetBook(Guid id)
+    {
+        var bookEntity = await _booksRepository.GetBookAsync(id);
+
+        if (bookEntity is null)
+        {
+            return NotFound();
+        }
+
+        var mappedBook = _mapper.Map<Book>(bookEntity);
+        return Ok(mappedBook);
+    }
+
     [HttpPost]
     public async Task<ActionResult<Book>> CreateBook([FromBody] CreateBookModel book)
     {
