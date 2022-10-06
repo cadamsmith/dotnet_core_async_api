@@ -2,14 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using Books.Api.Entities.Common;
+
 namespace Books.Api.Entities;
 
 [Table("Authors")]
-public class Author
+public class Author : BaseEntity
 {
-    [Key]
-    public Guid Id { get; set; }
-
     [Required]
     [MaxLength(150)]
     public string FirstName { get; set; } = string.Empty;
