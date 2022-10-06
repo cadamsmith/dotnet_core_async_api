@@ -17,6 +17,17 @@ public class BooksRepository : IBooksRepository
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
+    public Book? GetBook(Guid id)
+    {
+        if (id == Guid.Empty)
+        {
+            throw new ArgumentNullException(nameof(id));
+        }
+
+        return _context.Books.Include(b => b.Author)
+            .FirstOrDefault(b => b.Id == id);
+    }
+
     public async Task<Book?> GetBookAsync(Guid id)
     {
         if (id == Guid.Empty)
@@ -38,9 +49,19 @@ public class BooksRepository : IBooksRepository
         _context.Add(book);
     }
 
+    public bool SaveChanges()
+    {
+        return (_context.SaveChanges() > 0);
+    }
+
     public async Task<bool> SaveChangesAsync()
     {
         return (await _context.SaveChangesAsync() > 0);
+    }
+
+    public IEnumerable<Book> GetBooks()
+    {
+        return _context.Books.AsEnumerable();
     }
 
     public IAsyncEnumerable<Book> GetBooksAsync()
