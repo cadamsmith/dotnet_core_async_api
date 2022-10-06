@@ -20,6 +20,9 @@ builder.Services.AddDbContext<BooksContext>(
 
 builder.Services.AddControllers();
 
+// helps capture database-related exceptions and display them for developer
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 // add data access classes to middleware
 builder.Services.AddScoped<IBooksRepository, BooksRepository>();
 
