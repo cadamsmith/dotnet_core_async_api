@@ -9,6 +9,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IBooksRepository, BooksRepository>();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 // configure Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
