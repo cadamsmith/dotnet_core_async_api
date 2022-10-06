@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 using Books.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
