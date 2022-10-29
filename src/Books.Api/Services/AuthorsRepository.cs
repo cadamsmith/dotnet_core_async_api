@@ -17,7 +17,7 @@ public class AuthorsRepository : IAuthorsRepository
     public AuthorsRepository(BooksContext context, ILogger<AuthorsRepository> logger)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
-        _logger = logger ?? throw new ArgumentNullException(nameof(context));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     /// <summary>
@@ -77,13 +77,17 @@ public class AuthorsRepository : IAuthorsRepository
         return (_context.SaveChanges() > 0);
     }
 
+    /// <summary>
+    /// saves context asynchronously, persisting changes
+    /// </summary>
+    /// <returns></returns>
     public async Task<bool> SaveChangesAsync()
     {
         return (await _context.SaveChangesAsync() > 0);
     }
 
     /// <summary>
-    /// saves context asynchronously, persisting changes
+    /// retrieves all authors in context
     /// </summary>
     /// <returns></returns>
     public IEnumerable<Author> GetAuthors()
@@ -91,7 +95,10 @@ public class AuthorsRepository : IAuthorsRepository
         return _context.Authors.AsEnumerable();
     }
 
-    
+    /// <summary>
+    /// retrieves all authors in context as an async enumerable
+    /// </summary>
+    /// <returns></returns>
     public IAsyncEnumerable<Author> GetAuthorsAsync()
     {
         return _context.Authors.AsAsyncEnumerable();

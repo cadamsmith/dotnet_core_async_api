@@ -1,7 +1,7 @@
 
 using AutoMapper;
 
-namespace Books.Api;
+namespace Books.Api.Profiles;
 
 public class BooksProfile : Profile
 {
@@ -15,7 +15,9 @@ public class BooksProfile : Profile
             // tell it how to map to Models.Book.Author property
             .ForMember(
                 dest => dest.Author,
-                opt => opt.MapFrom(src => $"{src.Author.FirstName} {src.Author.LastName}")
+                opt => opt.MapFrom(
+                    src => $"{src.Author.FirstName} {src.Author.LastName}"
+                )
             );
 
         // Models.CreateBookModel --> Entities.Book

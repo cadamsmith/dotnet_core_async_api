@@ -1,7 +1,7 @@
 
 using AutoMapper;
 
-namespace Books.Api;
+namespace Books.Api.Profiles;
 
 public class AuthorsProfile : Profile
 {
@@ -14,7 +14,9 @@ public class AuthorsProfile : Profile
         CreateMap<Entities.Author, Models.Author>()
             .ForMember(
                 dest => dest.Name,
-                opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}")
+                opt => opt.MapFrom(
+                    src => $"{src.FirstName} {src.LastName}"
+                )
             );
 
         CreateMap<Models.CreateAuthorModel, Entities.Author>();

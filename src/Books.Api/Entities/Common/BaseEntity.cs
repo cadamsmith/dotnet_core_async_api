@@ -6,7 +6,7 @@ namespace Books.Api.Entities.Common;
 
 public abstract class BaseEntity
 {
-    public BaseEntity()
+    protected BaseEntity()
     {
         CreatedAt = LastModifiedAt = DateTime.UtcNow;
         IsArchived = false;

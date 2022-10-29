@@ -43,7 +43,7 @@ public class AuthorsController : ControllerBase
 
         await _authorsRepository.SaveChangesAsync();
 
-        // Refetch the author from the data store
+        // Re-fetch the author from the data store
         await _authorsRepository.GetAuthorAsync(authorEntity.Id);
 
         return CreatedAtAction(
