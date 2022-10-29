@@ -73,7 +73,7 @@ public class BooksContext : DbContext
                 Id = Guid.Parse("493c3228-3444-4a49-9cc0-e8532edc59b2"),
                 AuthorId = Guid.Parse("24810dfc-2d94-4cc7-aab5-cdf98b83f0c9"),
                 Title = "American Tabloid",
-                Description = "American Tabloid is a 1995 novel by James Ellroy that chronicles the events surrounding three rogue American law enforcement officers from November 22, 1958 through November 22, 1963. Each becomes entangled in a web of interconnecting associations between the FBI, the CIA, and the mafia, which eventually leads to their collective involvement in the John F. Kennedy assassination."
+                Description = "American Tabloid is a 1995 novel by James Elroy that chronicles the events surrounding three rogue American law enforcement officers from November 22, 1958 through November 22, 1963. Each becomes entangled in a web of interconnecting associations between the FBI, the CIA, and the mafia, which eventually leads to their collective involvement in the John F. Kennedy assassination."
             },
             new Book
             {

@@ -23,7 +23,7 @@ public class BooksController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Book>> GetBook(Guid id)
+    public async Task<ActionResult<Book>> GetBookAsync(Guid id)
     {
         var bookEntity = await _booksRepository.GetBookAsync(id);
 
@@ -37,14 +37,14 @@ public class BooksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Book>> CreateBook([FromBody] CreateBookModel book)
+    public async Task<ActionResult<Book>> CreateBookAsync([FromBody] CreateBookModel book)
     {
         var bookEntity = _mapper.Map<Entities.Book>(book);
-        _booksRepository.AddBook(bookEntity);
+        _booksRepository.CreateBook(bookEntity);
 
         await _booksRepository.SaveChangesAsync();
 
-        // Fetch (refetch) the book from the data store, including the author
+        // Re-fetch the book from the data store, including the author
         await _booksRepository.GetBookAsync(bookEntity.Id);
 
         return CreatedAtRoute(

@@ -23,7 +23,7 @@ public class AuthorsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<Author>> GetAuthor(Guid id)
+    public async Task<ActionResult<Author>> GetAuthorAsync(Guid id)
     {
         var authorEntity = await _authorsRepository.GetAuthorAsync(id);
 
@@ -37,9 +37,10 @@ public class AuthorsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Author>> CreateAuthor([FromBody] CreateAuthorModel author)
+    public async Task<ActionResult<Author>> CreateAuthorAsync([FromBody] CreateAuthorModel author)
     {
         var authorEntity = _mapper.Map<Entities.Author>(author);
+        _authorsRepository.CreateAuthor(authorEntity);
 
         await _authorsRepository.SaveChangesAsync();
 

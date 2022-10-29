@@ -9,7 +9,7 @@ public interface IAuthorsRepository
 
     Task<Author?> GetAuthorAsync(Guid id);
 
-    void AddAuthor(Author author);
+    void CreateAuthor(Author author);
 
     bool SaveChanges();
 

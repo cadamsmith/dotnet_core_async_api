@@ -61,7 +61,7 @@ public class BooksRepository : IBooksRepository
     /// this method does not need to be async, because the <c>_context.Add</c>
     /// operation is not io-bound
     /// </remarks>
-    public void AddBook(Book book)
+    public void CreateBook(Book book)
     {
         if (book is null)
         {

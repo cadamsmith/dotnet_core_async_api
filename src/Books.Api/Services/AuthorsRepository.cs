@@ -58,7 +58,7 @@ public class AuthorsRepository : IAuthorsRepository
     /// this method does not need to be async, because the <c>_context.Add</c>
     /// operation is not io-bound
     /// </remarks>
-    public void AddAuthor(Author author)
+    public void CreateAuthor(Author author)
     {
         if (author is null)
         {

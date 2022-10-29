@@ -9,7 +9,7 @@ public interface IBooksRepository
 
     Task<Book?> GetBookAsync(Guid id);
 
-    void AddBook(Book book);
+    void CreateBook(Book book);
 
     bool SaveChanges();
 
